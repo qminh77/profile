@@ -66,7 +66,7 @@ export function Experience() {
 
                             {/* Card Content */}
                             <div className="flex-1 pl-12 md:pl-0">
-                                <Card className="border-primary/10 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
+                                <Card className="border bg-card transition-all duration-300">
                                     <CardHeader>
                                         <div className="flex items-center justify-between mb-2">
                                             <div className="p-2 rounded-lg bg-primary/10 text-primary w-fit">

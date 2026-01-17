@@ -39,7 +39,7 @@ export function Skills() {
 
             <div className="grid gap-6 md:grid-cols-2">
                 {skillCategories.map((category, index) => (
-                    <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-primary/10 hover:border-primary/30 bg-card/50 backdrop-blur-sm">
+                    <Card key={index} className="group transition-all duration-300 border bg-card hover:bg-accent/5">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-3 text-xl">
                                 <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
@@ -54,7 +54,7 @@ export function Skills() {
                                     <Badge
                                         key={skill}
                                         variant="secondary"
-                                        className="px-3 py-1 text-sm bg-secondary/50 hover:bg-secondary transition-colors"
+                                        className="px-3 py-1 text-sm bg-secondary hover:bg-secondary/80 transition-colors"
                                     >
                                         {skill}
                                     </Badge>

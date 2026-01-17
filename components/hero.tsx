@@ -18,10 +18,10 @@ export function Hero() {
                     Available for Internship
                 </Badge>
 
-                <div className="space-y-2">
-                    <h1 className="text-4xl font-extrabold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
-                        Hello, I'm <br className="md:hidden" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-pink-500 animate-gradient-x bg-[length:200%_200%]">
+                <div className="space-y-4">
+                    <h1 className="text-4xl font-extrabold tracking-tighter sm:text-6xl md:text-7xl lg:text-9xl">
+                        <span className="block text-muted-foreground text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 tracking-normal">Hello, I'm</span>
+                        <span className="text-foreground">
                             Nguyễn Quốc Minh
                         </span>
                     </h1>

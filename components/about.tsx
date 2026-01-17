@@ -14,7 +14,7 @@ export function About() {
             </div>
 
             <div className="grid gap-8 md:grid-cols-2">
-                <Card className="border-primary/10 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
+                <Card className="border bg-card transition-all duration-300">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-3 text-2xl">
                             <div className="p-2 rounded-lg bg-primary/10 text-primary">
@@ -38,7 +38,7 @@ export function About() {
                     </CardContent>
                 </Card>
 
-                <Card className="border-primary/10 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
+                <Card className="border bg-card transition-all duration-300">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-3 text-2xl">
                             <div className="p-2 rounded-lg bg-primary/10 text-primary">

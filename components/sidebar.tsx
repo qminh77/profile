@@ -12,6 +12,7 @@ export function Sidebar() {
         { name: "About", href: "#about" },
         { name: "Skills", href: "#skills" },
         { name: "Projects", href: "#projects" },
+        { name: "Certificates", href: "#certificates" },
         { name: "Experience", href: "#experience" },
         { name: "Contact", href: "#contact" },
     ]
@@ -19,13 +20,10 @@ export function Sidebar() {
     return (
         <aside className="h-screen sticky top-0 flex flex-col gap-6 p-6 border-r bg-muted/10 w-full max-w-xs hidden lg:flex">
             <div className="flex flex-col items-center gap-4 text-center">
-                <div className="relative">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full blur opacity-75 animate-pulse"></div>
-                    <Avatar className="h-32 w-32 border-2 border-background relative">
-                        <AvatarImage src="/profile.jpg" alt="Nguyen Quoc Minh" className="object-cover object-top" />
-                        <AvatarFallback className="text-4xl bg-muted">NM</AvatarFallback>
-                    </Avatar>
-                </div>
+                <Avatar className="h-32 w-32 border border-border aspect-square overflow-hidden">
+                    <AvatarImage src="/profile.jpg" alt="Nguyen Quoc Minh" className="h-full w-full object-cover" />
+                    <AvatarFallback className="text-4xl">NM</AvatarFallback>
+                </Avatar>
                 <div className="space-y-1">
                     <h1 className="text-2xl font-bold">Nguyễn Quốc Minh</h1>
                     <p className="text-muted-foreground font-medium">Software Engineer Intern</p>
