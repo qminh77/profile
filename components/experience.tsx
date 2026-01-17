@@ -59,7 +59,7 @@ export function Experience() {
                         <div key={index} className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? "md:flex-row-reverse" : ""
                             }`}>
                             {/* Timeline Dot */}
-                            <div className="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-background border-4 border-primary transform -translate-x-1/2 mt-6 z-10" />
+                            <div className="absolute left-6 md:left-1/2 w-4 h-4 rounded-none bg-background border-4 border-primary transform -translate-x-1/2 mt-6 z-10" />
 
                             {/* Content Spacer for layout balance */}
                             <div className="flex-1 hidden md:block" />
@@ -69,10 +69,10 @@ export function Experience() {
                                 <Card className="border bg-card transition-all duration-300">
                                     <CardHeader>
                                         <div className="flex items-center justify-between mb-2">
-                                            <div className="p-2 rounded-lg bg-primary/10 text-primary w-fit">
+                                            <div className="p-2 rounded-none bg-primary/10 text-primary w-fit">
                                                 <Briefcase className="w-5 h-5" />
                                             </div>
-                                            <span className="flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-secondary text-secondary-foreground">
+                                            <span className="flex items-center text-xs font-medium px-2.5 py-1 rounded-none bg-secondary text-secondary-foreground">
                                                 <Calendar className="w-3 h-3 mr-1" />
                                                 {exp.period}
                                             </span>
@@ -86,7 +86,7 @@ export function Experience() {
                                         <ul className="list-none space-y-2 text-muted-foreground text-sm">
                                             {exp.description.map((desc, i) => (
                                                 <li key={i} className="flex items-start">
-                                                    <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary/50" />
+                                                    <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-none bg-primary/50" />
                                                     {desc}
                                                 </li>
                                             ))}

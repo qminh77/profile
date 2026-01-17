@@ -10,11 +10,11 @@ export function Footer() {
                     Ready to collaborate on new projects.
                 </p>
                 <div className="flex gap-4">
-                    <Link href="https://github.com/qminh77" target="_blank" className="p-2 rounded-full hover:bg-accent transition-colors">
+                    <Link href="https://github.com/qminh77" target="_blank" className="p-2 rounded-none hover:bg-accent transition-colors">
                         <Github className="h-6 w-6" />
                         <span className="sr-only">Github</span>
                     </Link>
-                    <a href="mailto:minhminh3456minh@gmail.com" className="p-2 rounded-full hover:bg-accent transition-colors">
+                    <a href="mailto:minhminh3456minh@gmail.com" className="p-2 rounded-none hover:bg-accent transition-colors">
                         <Mail className="h-6 w-6" />
                         <span className="sr-only">Email</span>
                     </a>

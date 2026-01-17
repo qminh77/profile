@@ -44,7 +44,7 @@ export function Certificates() {
                 {certificates.map((cert, index) => (
                     <Card key={index} className="border bg-card hover:border-primary/50 transition-all duration-300">
                         <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                            <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                            <div className="p-2 rounded-none bg-primary/10 text-primary">
                                 <Trophy className="w-5 h-5" />
                             </div>
                             <div className="space-y-1">

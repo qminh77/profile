@@ -92,7 +92,7 @@ export function Projects() {
                 </div>
 
                 {categories.map((category) => (
-                    <TabsContent key={category} value={category} className="space-y-8">
+                    <TabsContent key={category} value={category} className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-500 will-change-transform">
                         <div className="grid gap-8 md:grid-cols-2">
                             {projects
                                 .filter((project) => category === "All" || project.category === category)

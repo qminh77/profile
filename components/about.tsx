@@ -17,7 +17,7 @@ export function About() {
                 <Card className="border bg-card transition-all duration-300">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-3 text-2xl">
-                            <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                            <div className="p-2 rounded-none bg-primary/10 text-primary">
                                 <Target className="w-6 h-6" />
                             </div>
                             Objective
@@ -41,7 +41,7 @@ export function About() {
                 <Card className="border bg-card transition-all duration-300">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-3 text-2xl">
-                            <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                            <div className="p-2 rounded-none bg-primary/10 text-primary">
                                 <GraduationCap className="w-6 h-6" />
                             </div>
                             Education
@@ -52,10 +52,10 @@ export function About() {
                             <h3 className="font-bold text-xl mb-1 text-foreground">Ho Chi Minh City University of Management and Technology (UMT)</h3>
                             <div className="flex justify-between items-center mb-4">
                                 <span className="text-primary font-medium">Information Technology</span>
-                                <span className="text-sm px-3 py-1 rounded-full bg-secondary text-secondary-foreground font-medium">2024 - 2028</span>
+                                <span className="text-sm px-3 py-1 rounded-none bg-secondary text-secondary-foreground font-medium">2024 - 2028</span>
                             </div>
 
-                            <div className="space-y-2 bg-secondary/30 p-4 rounded-lg">
+                            <div className="space-y-2 bg-secondary/30 p-4 rounded-none">
                                 <div className="flex justify-between items-center">
                                     <span className="text-muted-foreground">GPA (2025)</span>
                                     <span className="font-bold text-foreground">3.74</span>

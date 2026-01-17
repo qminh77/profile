@@ -18,61 +18,63 @@ export function Sidebar() {
     ]
 
     return (
-        <aside className="h-screen sticky top-0 flex flex-col gap-6 p-6 border-r bg-muted/10 w-full max-w-xs hidden lg:flex">
-            <div className="flex flex-col items-center gap-4 text-center">
-                <Avatar className="h-32 w-32 border border-border aspect-square overflow-hidden">
-                    <AvatarImage src="/profile.jpg" alt="Nguyen Quoc Minh" className="h-full w-full object-cover" />
-                    <AvatarFallback className="text-4xl">NM</AvatarFallback>
-                </Avatar>
-                <div className="space-y-1">
-                    <h1 className="text-2xl font-bold">Nguyễn Quốc Minh</h1>
-                    <p className="text-muted-foreground font-medium">Software Engineer Intern</p>
-                </div>
+        <aside className="h-screen sticky top-0 flex flex-col border-r bg-card/50 backdrop-blur-sm w-full max-w-xs hidden lg:flex border-border/40">
+            {/* Header / Brand */}
+            <div className="p-6 border-b border-border/40">
+                <Link href="/" className="text-xl font-bold tracking-tighter">
+                    PORTFOLIO<span className="text-primary">.</span>
+                </Link>
             </div>
 
-            <Separator />
-
-            <nav className="flex flex-col gap-2 flex-1">
+            {/* Navigation */}
+            <nav className="flex flex-col p-4 gap-1">
                 {navItems.map((item) => (
                     <Link
                         key={item.href}
                         href={item.href}
-                        className="px-4 py-2 text-sm font-medium rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
+                        className="px-4 py-3 text-sm font-medium hover:bg-primary/5 hover:text-primary transition-all border-l-2 border-transparent hover:border-primary flex items-center justify-between group"
                     >
                         {item.name}
+                        <span className="opacity-0 group-hover:opacity-100 transition-opacity text-primary">→</span>
                     </Link>
                 ))}
             </nav>
 
-            <div className="flex flex-col gap-4">
-                <div className="text-sm text-center text-muted-foreground space-y-2">
-                    <div className="flex items-center justify-center gap-2">
-                        <MapPin className="h-4 w-4" />
-                        <span>Dong Nai, Vietnam</span>
+            {/* Spacer */}
+            <div className="flex-1" />
+
+            {/* Bottom Profile Section */}
+            <div className="p-4 border-t border-border/40 bg-muted/5">
+                <div className="flex items-center gap-3 mb-4">
+                    <Avatar className="h-10 w-10 border border-border rounded-none shrink-0">
+                        <AvatarImage src="/profile.jpg" alt="Nguyen Quoc Minh" className="object-cover" />
+                        <AvatarFallback className="rounded-none">QM</AvatarFallback>
+                    </Avatar>
+                    <div className="overflow-hidden">
+                        <h3 className="font-bold text-sm truncate">Nguyễn Quốc Minh</h3>
+                        <p className="text-xs text-muted-foreground truncate">Software Engineer Intern</p>
                     </div>
                 </div>
 
-                <div className="flex justify-center gap-2">
-                    <Button variant="ghost" size="icon" asChild>
+                <div className="grid grid-cols-4 gap-2 mb-4">
+                    <Button variant="outline" size="icon" className="h-8 w-8 rounded-none border-border/50" asChild>
                         <Link href="https://github.com/qminh77" target="_blank">
-                            <Github className="h-5 w-5" />
-                            <span className="sr-only">Github</span>
+                            <Github className="h-4 w-4" />
                         </Link>
                     </Button>
-                    <Button variant="ghost" size="icon" asChild>
+                    <Button variant="outline" size="icon" className="h-8 w-8 rounded-none border-border/50" asChild>
                         <a href="mailto:minhminh3456minh@gmail.com">
-                            <Mail className="h-5 w-5" />
-                            <span className="sr-only">Email</span>
+                            <Mail className="h-4 w-4" />
                         </a>
                     </Button>
-                    <div className="flex items-center">
+                    <div className="h-8 w-8 flex items-center justify-center">
                         <ModeToggle />
                     </div>
                 </div>
 
-                <Button variant="outline" className="w-full gap-2" asChild>
+                <Button variant="default" className="w-full text-xs h-9 rounded-none font-semibold shadow-none" asChild>
                     <Link href="/Nguyen-Quoc-Minh-CV.pdf" target="_blank">
-                        <Download className="h-4 w-4" />
+                        <Download className="mr-2 h-3 w-3" />
                         Download CV
                     </Link>
                 </Button>

@@ -10,10 +10,10 @@ export function Hero() {
             <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-background to-background opacity-50" />
 
             <div className="space-y-6 animate-in fade-in zoom-in duration-700 slide-in-from-bottom-4">
-                <Badge variant="secondary" className="px-4 py-2 text-sm border-primary/20 backdrop-blur-sm bg-background/50">
+                <Badge variant="secondary" className="px-4 py-2 text-sm border-primary/20 backdrop-blur-sm bg-background/50 rounded-none">
                     <span className="relative flex h-2 w-2 mr-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-none bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-none h-2 w-2 bg-green-500"></span>
                     </span>
                     Available for Internship
                 </Badge>
@@ -46,15 +46,15 @@ export function Hero() {
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground mt-12 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/30 backdrop-blur-sm border border-border/50">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-none bg-secondary/30 backdrop-blur-sm border border-border/50">
                     <MapPin className="h-4 w-4 text-primary" />
                     <span>Dong Nai, Vietnam</span>
                 </div>
-                <Link href="https://github.com/qminh77" target="_blank" className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/30 backdrop-blur-sm border border-border/50 hover:bg-secondary/50 hover:text-foreground transition-all">
+                <Link href="https://github.com/qminh77" target="_blank" className="flex items-center gap-2 px-4 py-2 rounded-none bg-secondary/30 backdrop-blur-sm border border-border/50 hover:bg-secondary/50 hover:text-foreground transition-all">
                     <Github className="h-4 w-4 text-primary" />
                     <span>github.com/qminh77</span>
                 </Link>
-                <a href="mailto:minhminh3456minh@gmail.com" className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/30 backdrop-blur-sm border border-border/50 hover:bg-secondary/50 hover:text-foreground transition-all">
+                <a href="mailto:minhminh3456minh@gmail.com" className="flex items-center gap-2 px-4 py-2 rounded-none bg-secondary/30 backdrop-blur-sm border border-border/50 hover:bg-secondary/50 hover:text-foreground transition-all">
                     <Mail className="h-4 w-4 text-primary" />
                     <span>Email Me</span>
                 </a>

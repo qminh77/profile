@@ -42,7 +42,7 @@ export function Skills() {
                     <Card key={index} className="group transition-all duration-300 border bg-card hover:bg-accent/5">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-3 text-xl">
-                                <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                <div className="p-2 rounded-none bg-primary/10 group-hover:bg-primary/20 transition-colors">
                                     {category.icon}
                                 </div>
                                 {category.title}
