@@ -1,74 +1,49 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { GraduationCap, Target } from "lucide-react"
-
 export function About() {
-    return (
-        <section id="about" className="container mx-auto py-24 px-4 space-y-12">
-            <div className="space-y-4 text-center">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
-                    About Me
-                </h2>
-                <p className="text-muted-foreground max-w-[700px] mx-auto text-lg">
-                    My career objectives and educational background.
-                </p>
-            </div>
+  return (
+    <section id="about" className="space-y-4 scroll-mt-20">
+      {/* Section Header */}
+      <div className="border-b border-border/60 pb-3">
+        <h2 className="text-sm font-bold tracking-wider text-foreground uppercase font-mono">
+          Education &amp; Objectives
+        </h2>
+        <p className="text-xs text-muted-foreground mt-0.5">
+          Academic foundation and long-term career aspirations
+        </p>
+      </div>
 
-            <div className="grid gap-8 md:grid-cols-2">
-                <Card className="border bg-card transition-all duration-300">
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-3 text-2xl">
-                            <div className="p-2 rounded-none bg-primary/10 text-primary">
-                                <Target className="w-6 h-6" />
-                            </div>
-                            Objective
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4 text-muted-foreground leading-relaxed">
-                        <p>
-                            I am eager to join real-world business projects to learn and develop skills in
-                            website and application construction, from requirements analysis, interface design,
-                            functional development to testing and deployment.
-                        </p>
-                        <p>
-                            My goal is to step-by-step master the digital product development process,
-                            accumulate practical experience, and become a software engineer capable of
-                            developing web systems and applications serving practical needs.
-                            I wish to stick with the enterprise for a long time during my studies and after graduation.
-                        </p>
-                    </CardContent>
-                </Card>
+      <div className="space-y-4">
+        {/* Education Entry */}
+        <div className="space-y-1.5">
+          <div className="flex items-start justify-between gap-2">
+            <h3 className="text-xs sm:text-sm font-bold text-foreground">
+              University of Management and Technology (UMT)
+            </h3>
+            <span className="shrink-0 font-mono text-[11px] text-muted-foreground">
+              2024 — 2028
+            </span>
+          </div>
 
-                <Card className="border bg-card transition-all duration-300">
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-3 text-2xl">
-                            <div className="p-2 rounded-none bg-primary/10 text-primary">
-                                <GraduationCap className="w-6 h-6" />
-                            </div>
-                            Education
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-6">
-                        <div>
-                            <h3 className="font-bold text-xl mb-1 text-foreground">Ho Chi Minh City University of Management and Technology (UMT)</h3>
-                            <div className="flex justify-between items-center mb-4">
-                                <span className="text-primary font-medium">Information Technology</span>
-                                <span className="text-sm px-3 py-1 rounded-none bg-secondary text-secondary-foreground font-medium">2024 - 2028</span>
-                            </div>
+          <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
+            <span className="text-primary font-medium">B.S. in Information Technology</span>
+            <span className="text-muted-foreground/60">•</span>
+            <span className="text-foreground/90 font-medium">Junior Year (3rd Year)</span>
+          </div>
 
-                            <div className="space-y-2 bg-secondary/30 p-4 rounded-none">
-                                <div className="flex justify-between items-center">
-                                    <span className="text-muted-foreground">GPA (2025)</span>
-                                    <span className="font-bold text-foreground">3.74</span>
-                                </div>
-                                <div className="flex justify-between items-center">
-                                    <span className="text-muted-foreground">Rank</span>
-                                    <span className="font-bold text-primary">Excellent</span>
-                                </div>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-            </div>
-        </section>
-    )
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            Rigorous curriculum focused on software engineering standards and international benchmarks. Active participant in collegiate competitive programming (ICPC) and applied AI research.
+          </p>
+        </div>
+
+        {/* Objective Entry */}
+        <div className="pt-3 border-t border-border/40 space-y-1 text-xs text-muted-foreground leading-relaxed">
+          <h4 className="font-mono text-xs font-semibold text-foreground">
+            Career Objective
+          </h4>
+          <p>
+            Seeking a Software Engineer Intern / AI Developer position to contribute full-stack ownership to production systems: from system analysis, Next.js/Supabase architecture, to AI algorithmic optimization. Dedicated to long-term growth and technical excellence alongside an agile team.
+          </p>
+        </div>
+      </div>
+    </section>
+  )
 }

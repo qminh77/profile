@@ -1,64 +1,244 @@
+"use client"
+
+import * as React from "react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Github, Mail, MapPin, Download, Send } from "lucide-react"
+import Image from "next/image"
+import {
+  Download,
+  Github,
+  Mail,
+  Phone,
+  Check,
+  ArrowUpRight,
+  GitCommit,
+  BookOpen,
+} from "lucide-react"
 
 export function Hero() {
-    return (
-        <section className="container flex flex-col items-center justify-center min-h-[calc(100vh-3.5rem)] gap-8 px-4 text-center md:gap-10 mx-auto py-24 md:py-32 relative overflow-hidden">
-            {/* Background embellishments could go here, for now using pure CSS/Tailwind */}
-            <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-background to-background opacity-50" />
+  const [copied, setCopied] = React.useState(false)
 
-            <div className="space-y-6 animate-in fade-in zoom-in duration-700 slide-in-from-bottom-4">
-                <Badge variant="secondary" className="px-4 py-2 text-sm border-primary/20 backdrop-blur-sm bg-background/50 rounded-none">
-                    <span className="relative flex h-2 w-2 mr-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-none bg-green-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-none h-2 w-2 bg-green-500"></span>
+  const copyEmail = () => {
+    navigator.clipboard.writeText("minhminh3456minh@gmail.com")
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  const pinnedRepos = [
+    {
+      name: "joblink",
+      desc: "Professional job matching platform: Next.js 16, Supabase, PostgreSQL 40+ tables, Realtime.",
+      lang: "TypeScript",
+      langColor: "#3178c6",
+      url: "https://github.com/qminh77/joblink",
+    },
+    {
+      name: "ai_intro_umt",
+      desc: "AI ANN Heuristic Search: Neural network learning heuristic functions for maze A* search (104 -> 33 nodes).",
+      lang: "Python",
+      langColor: "#3572A5",
+      url: "https://github.com/qminh77/ai_intro_umt",
+    },
+    {
+      name: "SUI_Shopping_Cart",
+      desc: "E-commerce MVP with Sui Move smart contracts handling atomic checkouts at SUI Hackathon.",
+      lang: "Move / TS",
+      langColor: "#4C84FF",
+      url: "https://github.com/qminh77/SUI_Shopping_Cart",
+    },
+    {
+      name: "ems",
+      desc: "Academic event management system with sub-second QR code check-in and modular architecture.",
+      lang: "TypeScript",
+      langColor: "#3178c6",
+      url: "https://github.com/qminh77/ems",
+    },
+  ]
+
+  return (
+    <section className="space-y-6 pt-1">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        {/* 1. LEFT ZONE: PROFILE IDENTITY & DIRECT ACTIONS */}
+        <div className="lg:col-span-5 space-y-4">
+          <div className="flex items-start gap-4">
+            {/* Portrait Image (Balanced, Flat, Golden Ratio) */}
+            <div className="relative w-24 h-32 shrink-0 overflow-hidden rounded-xl border border-border/70 bg-muted/20">
+              <Image
+                src="/profile.jpg"
+                alt="Nguyen Quoc Minh"
+                fill
+                sizes="120px"
+                priority
+                className="object-cover object-center"
+              />
+            </div>
+
+            {/* Name, Handle & Title */}
+            <div className="space-y-1 min-w-0">
+              <div className="flex items-center gap-2">
+                <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground truncate">
+                  Nguyen Quoc Minh
+                </h1>
+              </div>
+
+              <p className="text-xs sm:text-sm font-medium text-foreground/90">
+                Software Engineer Intern — AI & Full-stack Web
+              </p>
+
+              <p className="text-[11px] font-mono text-muted-foreground">
+                Dept. of Information Technology • UMT
+              </p>
+
+              {/* Status Indicator */}
+              <div className="pt-1 font-mono text-xs flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                <span>Available for Internship (2026)</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bio Text (Flat, professional) */}
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            Junior CS student focused on architecting modern full-stack web platforms with{" "}
+            <strong className="text-foreground font-semibold">Next.js 16, TypeScript, Supabase / PostgreSQL (40+ tables, RLS)</strong>{" "}
+            and solving applied AI algorithmic challenges with{" "}
+            <strong className="text-foreground font-semibold">Python / TensorFlow (ANN, A* Heuristic Search)</strong>. Proven track record managing 600+ domain lifecycles and configuring DNS, Cloudflare, and SSL/TLS infrastructure.
+          </p>
+
+          {/* Action Buttons */}
+          <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-xs">
+            <Link
+              href="/Nguyen-Quoc-Minh-CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-foreground text-background hover:opacity-90 transition-opacity font-semibold"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Download CV</span>
+            </Link>
+
+            <button
+              type="button"
+              onClick={copyEmail}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/70 hover:bg-muted/50 text-foreground transition-colors cursor-pointer"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-600" />
+                  <span className="text-emerald-600">Copied</span>
+                </>
+              ) : (
+                <>
+                  <Mail className="w-3.5 h-3.5 text-muted-foreground" />
+                  <span>Copy Email</span>
+                </>
+              )}
+            </button>
+
+            <a
+              href="tel:0964560507"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/70 hover:bg-muted/50 text-foreground transition-colors"
+            >
+              <Phone className="w-3.5 h-3.5 text-muted-foreground" />
+              <span>+84 964 560 507</span>
+            </a>
+
+            <Link
+              href="https://github.com/qminh77"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border/70 hover:bg-muted/50 text-foreground transition-colors"
+            >
+              <Github className="w-3.5 h-3.5 text-muted-foreground" />
+              <span>@qminh77</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* 2. RIGHT ZONE: GITHUB COMMAND CENTER */}
+        <div
+          id="github"
+          className="lg:col-span-7 space-y-3.5 pt-4 lg:pt-0 border-t lg:border-t-0 lg:border-l border-border/60 lg:pl-8 scroll-mt-20"
+        >
+          {/* Header */}
+          <div className="flex items-baseline justify-between gap-2 border-b border-border/40 pb-2">
+            <div className="flex items-center gap-2">
+              <Github className="w-4 h-4 text-foreground" />
+              <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-foreground">
+                GitHub Activity &amp; Open Source
+              </h2>
+              <span className="text-muted-foreground font-mono text-xs hidden sm:inline">• 33 Repositories</span>
+            </div>
+
+            <Link
+              href="https://github.com/qminh77"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs text-primary hover:underline inline-flex items-center gap-0.5"
+            >
+              <span>View all</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </Link>
+          </div>
+
+          {/* Flat Contribution Graph */}
+          <div className="space-y-1">
+            <div className="flex items-center justify-between text-[11px] font-mono text-muted-foreground">
+              <span className="flex items-center gap-1">
+                <GitCommit className="w-3 h-3 text-primary" />
+                <span>Contributions Stream</span>
+              </span>
+              <span>Realtime</span>
+            </div>
+
+            <div className="overflow-x-auto py-1">
+              <div className="min-w-[580px] p-2 rounded-md bg-muted/20 border border-border/40">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://ghchart.rshah.org/0F4C81/qminh77"
+                  alt="GitHub Contributions chart"
+                  className="w-full h-auto dark:invert dark:hue-rotate-180 opacity-90"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Pinned Repos Grid (2-columns) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+            {pinnedRepos.map((repo, idx) => (
+              <Link
+                key={idx}
+                href={repo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-2.5 rounded-md hover:bg-muted/40 transition-colors border border-border/40 space-y-1"
+              >
+                <div className="flex items-center justify-between gap-1">
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    <BookOpen className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                    <span className="font-mono text-xs font-bold text-foreground group-hover:text-primary transition-colors truncate">
+                      {repo.name}
                     </span>
-                    Available for Internship
-                </Badge>
-
-                <div className="space-y-4">
-                    <h1 className="text-4xl font-extrabold tracking-tighter sm:text-6xl md:text-7xl lg:text-9xl">
-                        <span className="block text-muted-foreground text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 tracking-normal">Hello, I'm</span>
-                        <span className="text-foreground">
-                            Nguyễn Quốc Minh
-                        </span>
-                    </h1>
-                    <p className="max-w-[42rem] mx-auto text-muted-foreground text-lg sm:text-xl md:text-2xl leading-relaxed">
-                        Software Engineer Intern specializing in building <span className="text-foreground font-medium">modern web applications</span>.
-                        <br />Aspiring to master full-stack development.
-                    </p>
+                  </div>
+                  <ArrowUpRight className="w-3 h-3 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
                 </div>
-            </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 w-full justify-center animate-in fade-in zoom-in duration-700 slide-in-from-bottom-8 delay-200">
-                <Button asChild size="lg" className="h-12 px-8 text-lg shadow-lg hover:shadow-primary/25 transition-all hover:scale-105">
-                    <Link href="#contact">
-                        Contact Me <Send className="ml-2 w-4 h-4" />
-                    </Link>
-                </Button>
-                <Button variant="outline" size="lg" asChild className="h-12 px-8 text-lg backdrop-blur-sm bg-background/50 hover:bg-accent/50 hover:scale-105 transition-all">
-                    <Link href="/Nguyen-Quoc-Minh-CV.pdf" target="_blank" rel="noopener noreferrer">
-                        Download CV <Download className="ml-2 w-4 h-4" />
-                    </Link>
-                </Button>
-            </div>
+                <p className="text-[11px] text-muted-foreground line-clamp-2 leading-snug">
+                  {repo.desc}
+                </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground mt-12 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
-                <div className="flex items-center gap-2 px-4 py-2 rounded-none bg-secondary/30 backdrop-blur-sm border border-border/50">
-                    <MapPin className="h-4 w-4 text-primary" />
-                    <span>Dong Nai, Vietnam</span>
+                <div className="flex items-center gap-1.5 font-mono text-[10px] text-muted-foreground pt-0.5">
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: repo.langColor }}
+                  />
+                  <span>{repo.lang}</span>
                 </div>
-                <Link href="https://github.com/qminh77" target="_blank" className="flex items-center gap-2 px-4 py-2 rounded-none bg-secondary/30 backdrop-blur-sm border border-border/50 hover:bg-secondary/50 hover:text-foreground transition-all">
-                    <Github className="h-4 w-4 text-primary" />
-                    <span>github.com/qminh77</span>
-                </Link>
-                <a href="mailto:minhminh3456minh@gmail.com" className="flex items-center gap-2 px-4 py-2 rounded-none bg-secondary/30 backdrop-blur-sm border border-border/50 hover:bg-secondary/50 hover:text-foreground transition-all">
-                    <Mail className="h-4 w-4 text-primary" />
-                    <span>Email Me</span>
-                </a>
-            </div>
-        </section>
-    )
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
 }

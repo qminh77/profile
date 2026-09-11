@@ -3,8 +3,7 @@
 import Link from "next/link"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
-import { Github, Mail, MapPin, Download } from "lucide-react"
+import { Github, Mail, Download } from "lucide-react"
 import { ModeToggle } from "@/components/mode-toggle"
 
 export function Sidebar() {

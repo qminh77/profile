@@ -1,21 +1,42 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider"
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
-  subsets: ["latin"],
-});
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Nguyễn Quốc Minh | Portfolio",
-  description: "Software Engineer Intern Portfolio",
+  metadataBase: new URL("https://nguyenquocminh.id.vn"),
+  title: "Nguyen Quoc Minh | Software Engineer Intern & AI Developer",
+  description:
+    "Portfolio of Nguyen Quoc Minh - Junior CS student at UMT, specialized in Software Engineering, Full-stack Web, and Applied AI.",
+  keywords: [
+    "Nguyen Quoc Minh",
+    "Software Engineer",
+    "Full-stack Developer",
+    "AI Developer",
+    "Next.js",
+    "React",
+    "Supabase",
+    "PostgreSQL",
+    "UMT",
+    "Portfolio"
+  ],
+  authors: [{ name: "Nguyen Quoc Minh", url: "https://nguyenquocminh.id.vn" }],
+  openGraph: {
+    title: "Nguyen Quoc Minh | Software Engineer Intern & AI Developer",
+    description:
+      "Portfolio of Nguyen Quoc Minh - Junior CS student at UMT, specialized in Software Engineering, Full-stack Web, and Applied AI.",
+    url: "https://nguyenquocminh.id.vn",
+    siteName: "Nguyen Quoc Minh Portfolio",
+    images: [
+      {
+        url: "/profile.jpg",
+        width: 800,
+        height: 1200,
+        alt: "Nguyen Quoc Minh - Software Engineer Intern",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -25,9 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body
-        className={`${jakarta.variable} ${inter.variable} antialiased font-sans`}
-      >
+      <body className="antialiased font-sans selection:bg-primary/15 selection:text-primary min-h-screen bg-background text-foreground">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

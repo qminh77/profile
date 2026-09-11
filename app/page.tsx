@@ -1,29 +1,39 @@
-import { Sidebar } from "@/components/sidebar"
-import { MobileNav } from "@/components/mobile-nav"
-import { About } from "@/components/about"
-import { Skills } from "@/components/skills"
+import { Navbar } from "@/components/nav"
+import { Hero } from "@/components/hero"
 import { Projects } from "@/components/projects"
-import { Certificates } from "@/components/certificates"
 import { Experience } from "@/components/experience"
+import { Skills } from "@/components/skills"
+import { About } from "@/components/about"
+import { Certificates } from "@/components/certificates"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background font-sans antialiased flex flex-col lg:flex-row">
-      <Sidebar />
-      <MobileNav />
+    <div className="min-h-screen bg-background font-sans antialiased text-foreground selection:bg-foreground selection:text-background">
+      <Navbar />
 
-      <main className="flex-1 min-w-0 relative">
-        <div className="absolute inset-0 bg-dot-pattern pointer-events-none" />
-        <div className="container mx-auto max-w-4xl px-4 py-8 md:py-12 space-y-24 relative">
-          <About />
-          <Skills />
-          <Projects />
-          <Certificates />
-          <Experience />
-          <Footer />
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-12">
+        {/* Top Executive Deck: Profile & GitHub Command Center (Side-by-side on Desktop) */}
+        <Hero />
+
+        {/* Main Workspace (2-Column Grid on Desktop, Natural flow on Mobile) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start pt-4 border-t border-border/60">
+          {/* Primary Column (Left, 7 cols): Featured Projects & Experience */}
+          <div className="lg:col-span-7 space-y-12 min-w-0">
+            <Projects />
+            <Experience />
+          </div>
+
+          {/* Companion Column (Right, 5 cols): Certificates, Skills & Education */}
+          <div className="lg:col-span-5 space-y-10 min-w-0 lg:border-l lg:border-border/60 lg:pl-8">
+            <Certificates />
+            <Skills />
+            <About />
+          </div>
         </div>
+
+        <Footer />
       </main>
     </div>
-  );
+  )
 }
