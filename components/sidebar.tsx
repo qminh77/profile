@@ -62,7 +62,7 @@ export function Sidebar() {
                         </Link>
                     </Button>
                     <Button variant="outline" size="icon" className="h-8 w-8 rounded-none border-border/50" asChild>
-                        <a href="mailto:minhminh3456minh@gmail.com">
+                        <a href="mailto:nquoc.minh.work@gmail.com">
                             <Mail className="h-4 w-4" />
                         </a>
                     </Button>

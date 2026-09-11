@@ -8,7 +8,7 @@ export function Footer() {
   const [copied, setCopied] = React.useState(false)
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("minhminh3456minh@gmail.com")
+    navigator.clipboard.writeText("nquoc.minh.work@gmail.com")
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
@@ -30,7 +30,7 @@ export function Footer() {
         <div className="flex items-center justify-between py-2 border-b border-border/40">
           <span className="text-muted-foreground">Email:</span>
           <div className="flex items-center gap-2">
-            <span className="text-foreground font-medium">minhminh3456minh@gmail.com</span>
+            <span className="text-foreground font-medium">nquoc.minh.work@gmail.com</span>
             <button
               type="button"
               onClick={copyEmail}

@@ -18,7 +18,7 @@ export function Hero() {
   const [copied, setCopied] = React.useState(false)
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("minhminh3456minh@gmail.com")
+    navigator.clipboard.writeText("nquoc.minh.work@gmail.com")
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
