@@ -240,27 +240,30 @@ export function Projects() {
           Index / {String(filteredProjects.length).padStart(2, "0")} entries
         </p>
 
-        <Tabs
-          value={filter}
-          onValueChange={(value) => setFilter(value as ProjectFilter)}
-        >
-          <TabsList aria-label="Filter projects by category">
-            {filters.map((item) => {
-              const count =
-                item.key === "all"
-                  ? projects.length
-                  : projects.filter((project) => project.category === item.key)
-                      .length
+        <div className="no-scrollbar -mx-1 w-full min-w-0 overflow-x-auto px-1 sm:mx-0 sm:w-auto sm:px-0">
+          <Tabs
+            value={filter}
+            onValueChange={(value) => setFilter(value as ProjectFilter)}
+          >
+            <TabsList aria-label="Filter projects by category">
+              {filters.map((item) => {
+                const count =
+                  item.key === "all"
+                    ? projects.length
+                    : projects.filter(
+                        (project) => project.category === item.key
+                      ).length
 
-              return (
-                <TabsTrigger key={item.key} value={item.key}>
-                  {item.label}
-                  <span className="text-muted-foreground">{count}</span>
-                </TabsTrigger>
-              )
-            })}
-          </TabsList>
-        </Tabs>
+                return (
+                  <TabsTrigger key={item.key} value={item.key}>
+                    {item.label}
+                    <span className="text-muted-foreground">{count}</span>
+                  </TabsTrigger>
+                )
+              })}
+            </TabsList>
+          </Tabs>
+        </div>
       </div>
 
       <div className="divide-y divide-border">
