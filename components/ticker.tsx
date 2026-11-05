@@ -2,11 +2,11 @@ import { cn } from "@/lib/utils"
 
 const items = [
   "Available for 2026 internships",
-  "Full-stack engineering",
+  "Product engineering",
   "Applied AI",
-  "Next.js 16 / React 19",
-  "PostgreSQL / Supabase",
-  "Python / TensorFlow",
+  "Hiring workflows",
+  "Event operations",
+  "Knowledge platforms",
   "HCMC · GMT+7",
 ]
 

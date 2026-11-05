@@ -21,9 +21,8 @@ export function About() {
         </CardHeader>
         <CardContent className="pt-3">
           <p className="text-[11px] leading-relaxed text-muted-foreground">
-            Rigorous curriculum focused on software engineering standards and
-            international benchmarks. Active participant in collegiate
-            competitive programming (ICPC) and applied AI research.
+            Coursework in software engineering, databases, and algorithms, with
+            competitive programming (ICPC) and applied AI research alongside.
           </p>
         </CardContent>
       </Card>
@@ -31,11 +30,11 @@ export function About() {
       <div className="space-y-2">
         <p className="label">Career objective</p>
         <p className="text-[12px] leading-relaxed text-muted-foreground">
-          Seeking a Software Engineer Intern / AI Developer position to
-          contribute full-stack ownership to production systems: from system
-          analysis and Next.js / Supabase architecture to AI algorithmic
-          optimization. Dedicated to long-term growth and technical excellence
-          alongside an agile team.
+          Seeking a Software Engineer Intern / AI Developer role where I can own
+          a product surface end to end: clarify the requirement, design the data
+          and permissions, build the interface, and stay around for deployment.
+          I work best with teams that care about how the system behaves after
+          launch.
         </p>
       </div>
 

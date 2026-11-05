@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu } from "lucide-react"
 
 import { chapters, site } from "@/lib/site"
@@ -72,10 +73,27 @@ export function Navbar() {
             <span className="font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-foreground">
               {site.shortName}
             </span>
-            <span aria-hidden="true" className="label hidden sm:inline">
-              /
+            <span
+              aria-hidden="true"
+              className="hidden h-7 items-center border-l border-border pl-3 sm:flex"
+            >
+              <Image
+                src="/umt-school-of-technology.png"
+                alt=""
+                width={976}
+                height={164}
+                priority
+                className="h-[26px] w-auto dark:hidden"
+              />
+              <Image
+                src="/umt-school-of-technology-light.png"
+                alt=""
+                width={976}
+                height={164}
+                priority
+                className="hidden h-[26px] w-auto dark:block"
+              />
             </span>
-            <span className="label hidden sm:inline">swe &amp; ai</span>
           </Link>
 
           <nav

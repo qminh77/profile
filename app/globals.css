@@ -550,6 +550,92 @@
     transition: background 0.18s linear;
   }
 
+  /* The cover name is split into letters so the pointer can move them. */
+  .hero-letter {
+    display: inline-block;
+    transform: translate3d(
+      calc(var(--hero-mx, 0) * var(--depth, 0) * 1px),
+      calc(var(--hero-my, 0) * var(--depth, 0) * 1px),
+      0
+    );
+    transition: transform 0.7s var(--ease);
+    will-change: transform;
+  }
+
+  .hero-line-inner {
+    animation: hero-line-reveal 1.05s var(--ease) both;
+  }
+
+  .hero-line-1 {
+    animation-delay: 0.08s;
+  }
+
+  .hero-line-2 {
+    animation-delay: 0.2s;
+  }
+
+  /* Outlined edition number in the top-right corner. */
+  .hero-year {
+    font-family: var(--font-mono);
+    font-size: clamp(78px, 9.5vw, 148px);
+    font-weight: 200;
+    line-height: 0.76;
+    letter-spacing: -0.07em;
+    font-variant-numeric: tabular-nums;
+    color: transparent;
+    -webkit-text-stroke: 1px
+      color-mix(in oklab, var(--foreground) 48%, transparent);
+    user-select: none;
+  }
+
+  .hero-portrait {
+    isolation: isolate;
+  }
+
+  .portrait-reveal {
+    animation: portrait-reveal 1.05s var(--ease) 0.32s both;
+  }
+
+  .portrait-tilt {
+    transform: perspective(1000px)
+      rotateX(calc(var(--hero-my, 0) * -2.5deg))
+      rotateY(calc(var(--hero-mx, 0) * 2.5deg));
+    transform-style: preserve-3d;
+    transition: transform 0.7s var(--ease);
+  }
+
+  .hero-stamp {
+    transform: rotate(-7deg);
+    transition:
+      transform 0.4s var(--ease),
+      background-color 0.2s linear;
+  }
+
+  .hero-portrait:hover .hero-stamp {
+    transform: rotate(0deg) translateY(-3px);
+  }
+
+  .scroll-cue-line::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 36%;
+    background: var(--primary);
+    animation: scroll-cue 1.9s var(--ease) infinite;
+  }
+
+  .next-index {
+    color: transparent;
+    -webkit-text-stroke: 1px
+      color-mix(in oklab, var(--foreground) 28%, transparent);
+    transition: -webkit-text-stroke-color 0.25s var(--ease);
+  }
+
+  .group:hover .next-index {
+    -webkit-text-stroke-color: var(--primary);
+  }
+
   .portrait-glow {
     background:
       radial-gradient(
@@ -667,6 +753,45 @@
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+@keyframes hero-line-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.16em, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes portrait-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(-110%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(290%);
+    opacity: 0;
   }
 }
 

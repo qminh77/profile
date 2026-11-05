@@ -39,31 +39,27 @@ export default function Home() {
               <div className="grid gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
                 <div className="space-y-6">
                   <p className="max-w-2xl text-[clamp(20px,2.2vw,30px)] font-light leading-[1.32] tracking-[-0.025em] text-foreground">
-                    I turn complex requirements into{" "}
-                    <span className="text-primary">shipping systems</span> —
-                    clear architecture, honest data, and interfaces that stay
-                    legible under pressure.
+                    I turn messy requirements into{" "}
+                    <span className="text-primary">working systems</span> —
+                    honest data models, clear permissions, and interfaces that
+                    stay legible under pressure.
                   </p>
 
                   <div className="max-w-2xl space-y-4 text-[12px] leading-relaxed text-muted-foreground">
                     <p>
-                      Junior Computer Science student at UMT focused on
-                      architecting modern full-stack web platforms with{" "}
-                      <span className="text-foreground">
-                        Next.js 16, TypeScript, Supabase / PostgreSQL
-                      </span>{" "}
-                      (40+ tables, RLS) and solving applied AI algorithmic
-                      challenges with{" "}
-                      <span className="text-foreground">
-                        Python / TensorFlow
-                      </span>{" "}
-                      (ANN, A* heuristic search).
+                      Junior IT student at UMT. I build full-stack products —
+                      hiring workflows, event operations, publishing platforms —
+                      and applied AI systems. Most of the work sits where
+                      product decisions meet data: who can see what, which state
+                      transitions are allowed, and how a screen stays fast as
+                      the dataset grows.
                     </p>
                     <p>
-                      Proven track record managing 600+ domain lifecycles and
-                      configuring DNS, Cloudflare, and SSL/TLS infrastructure.
-                      Comfortable owning a system from schema design to
-                      deployment and the operational details in between.
+                      Before product work, I spent two years in domain and
+                      hosting operations: 600+ registrations, transfers, DNS and
+                      MX cutovers, Cloudflare, and TLS. That taught me to treat
+                      deployment, permissions, and failure states as part of the
+                      feature, not cleanup after it.
                     </p>
                   </div>
 
@@ -76,30 +72,35 @@ export default function Home() {
 
                   <div className="max-w-2xl border-t border-border pt-4">
                     <div className="flex items-baseline justify-between gap-4">
-                      <p className="label label-accent">Stack / layers</p>
+                      <p className="label label-accent">Scope / layers</p>
                       <span className="label">05 layers</span>
                     </div>
                     <ol className="mt-2 divide-y divide-border">
                       {[
                         {
                           name: "Interface",
-                          tools: "Next.js 16 / React 19 / Tailwind",
+                          tools:
+                            "Server-rendered surfaces, forms, dashboards, and state-heavy flows.",
                         },
                         {
                           name: "Logic",
-                          tools: "TypeScript / Server Actions / RPC",
+                          tools:
+                            "Typed domain rules, permission checks, and multi-step writes.",
                         },
                         {
                           name: "Data",
-                          tools: "PostgreSQL / Supabase / RLS",
+                          tools:
+                            "Relational models, row-level access, search indexes, realtime updates.",
                         },
                         {
                           name: "Intelligence",
-                          tools: "Python / TensorFlow / ANN / A*",
+                          tools:
+                            "Model training and evaluation, then inference inside the product flow.",
                         },
                         {
                           name: "Delivery",
-                          tools: "Vercel / Cloudflare / Git",
+                          tools:
+                            "DNS, TLS, caching, deploys, and the work of keeping sites up.",
                         },
                       ].map((layer, index) => (
                         <li
@@ -165,12 +166,12 @@ export default function Home() {
             id="toolkit"
             index="04"
             title="Toolkit"
-            deck="Languages, frameworks, and infrastructure."
+            deck="Capabilities across product, data, AI, and infrastructure."
             specs={[
               { label: "Groups", value: "04" },
-              { label: "Tools", value: "31" },
-              { label: "Core", value: "Next.js / Supabase" },
-              { label: "Methods", value: "ANN / A*" },
+              { label: "Stack notes", value: "07" },
+              { label: "Core", value: "Product / Data / AI" },
+              { label: "Ops", value: "600+ domains" },
             ]}
           >
             <Skills />

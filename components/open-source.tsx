@@ -7,28 +7,28 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"
 
 const pinnedRepos = [
   {
-    name: "joblink",
-    desc: "Professional job matching platform: Next.js 16, Supabase, PostgreSQL 40+ tables, Realtime.",
-    lang: "TypeScript",
-    url: "https://github.com/qminh77/joblink",
+    name: "SF2026",
+    desc: "Official Science Fair 2026 site: an editable three-day programme, bilingual copy, and “Bong Bóng” — a drag-to-place curatorial tour that saves and exports the visitor's arrangement.",
+    meta: "Live · WordPress",
+    url: "https://sf2026.thetoobluescientist.com",
   },
   {
-    name: "ai_intro_umt",
-    desc: "AI ANN heuristic search: neural-network learning for maze A* search (104 → 33 nodes).",
-    lang: "Python",
-    url: "https://github.com/qminh77/ai_intro_umt",
+    name: "Memolab",
+    desc: "Public platform for a knowledge-management product: courses, publications, topics, and authors in one catalogue, with member access tiers and automated RSS feeds.",
+    meta: "Live · Web platform",
+    url: "https://memolab.io",
   },
   {
-    name: "SUI_Shopping_Cart",
-    desc: "E-commerce MVP with Sui Move smart contracts handling atomic checkouts at SUI Hackathon.",
-    lang: "Move / TypeScript",
-    url: "https://github.com/qminh77/SUI_Shopping_Cart",
-  },
-  {
-    name: "ems",
-    desc: "Academic event management system with sub-second QR check-in and modular architecture.",
-    lang: "TypeScript",
+    name: "EMS",
+    desc: "Campus event operations in one loop: organisers create events, issue QR passes, and scan arrivals into an attendance ledger that updates immediately.",
+    meta: "Code · TypeScript",
     url: "https://github.com/qminh77/ems",
+  },
+  {
+    name: "SUI",
+    desc: "48-hour hackathon MVP: a storefront with seller and admin dashboards, where Sui Move contracts settle each checkout atomically.",
+    meta: "Code · Sui Move",
+    url: "https://github.com/qminh77/SUI_Shopping_Cart",
   },
 ]
 
@@ -36,8 +36,8 @@ export function OpenSource() {
   return (
     <Subsection
       index="01.1"
-      title="Open source index"
-      meta="33 repositories / 04 pinned"
+      title="Pinned builds"
+      meta="04 selected / live + code"
     >
       <div className="grid min-w-0 grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)]">
         <div className="min-w-0 space-y-2">
@@ -114,7 +114,7 @@ export function OpenSource() {
                       aria-hidden="true"
                       className="size-1.5 bg-primary"
                     />
-                    {repo.lang}
+                    {repo.meta}
                   </Badge>
                 </CardContent>
               </Card>

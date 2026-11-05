@@ -16,9 +16,9 @@ const LINES: TerminalLine[] = [
   { kind: "code", text: "const profile = {" },
   {
     kind: "code",
-    text: '  stack: ["Next.js", "Supabase", "TensorFlow"],',
+    text: '  work: ["hiring", "events", "publishing"],',
   },
-  { kind: "code", text: '  focus: ["full-stack", "applied-ai"],' },
+  { kind: "code", text: '  method: "model the data first",' },
   { kind: "code", text: '  status: "open_to_2026",' },
   { kind: "code", text: "}" },
   { kind: "output", text: "// build passed · 0 errors · 0 warnings" },
