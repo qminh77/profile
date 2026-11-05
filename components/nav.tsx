@@ -2,81 +2,150 @@
 
 import * as React from "react"
 import Link from "next/link"
+import { Menu } from "lucide-react"
+
+import { chapters, site } from "@/lib/site"
+import { cn } from "@/lib/utils"
+import { MobileNav } from "@/components/mobile-nav"
 import { ModeToggle } from "@/components/mode-toggle"
 import { Button } from "@/components/ui/button"
-import { Download } from "lucide-react"
+
+const sections = [
+  { id: "top", no: "00", label: "Cover" },
+  ...chapters,
+]
 
 export function Navbar() {
+  const [active, setActive] = React.useState<string>("top")
+  const [menuOpen, setMenuOpen] = React.useState(false)
+  const progressRef = React.useRef<HTMLSpanElement>(null)
+
+  React.useEffect(() => {
+    const onScroll = () => {
+      const marker = window.scrollY + window.innerHeight * 0.3
+      let current = "top"
+
+      for (const section of sections) {
+        const element = document.getElementById(section.id)
+        if (!element) continue
+
+        const top = element.getBoundingClientRect().top + window.scrollY
+        if (top <= marker) current = section.id
+      }
+
+      setActive(current)
+
+      if (progressRef.current) {
+        const distance =
+          document.documentElement.scrollHeight - window.innerHeight
+        const progress =
+          distance > 0 ? Math.min(1, Math.max(0, window.scrollY / distance)) : 0
+        progressRef.current.style.transform = `scaleX(${progress})`
+      }
+    }
+
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    window.addEventListener("resize", onScroll)
+
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      window.removeEventListener("resize", onScroll)
+    }
+  }, [])
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto flex h-14 items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand */}
-        <Link
-          href="/"
-          className="flex items-center gap-2 font-mono text-xs font-semibold tracking-tight text-foreground hover:opacity-80 transition-opacity"
-        >
-          <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
-          <span>minh.dev</span>
-          <span className="text-muted-foreground/50">/</span>
-          <span className="text-muted-foreground font-normal hidden sm:inline">swe & ai</span>
-        </Link>
-
-        {/* Navigation */}
-        <nav className="flex items-center gap-1 sm:gap-1.5">
+    <>
+      <header className="sticky top-0 z-40 w-full border-b border-border bg-background/90 backdrop-blur-md">
+        <div className="shell flex h-14 items-center justify-between gap-4">
           <Link
-            href="#projects"
-            className="px-2 py-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted/50"
+            href="#top"
+            className="group flex shrink-0 items-center gap-2"
+            aria-label={`${site.name} — back to cover`}
           >
-            Projects
-          </Link>
-          <Link
-            href="#github"
-            className="px-2 py-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted/50"
-          >
-            GitHub
-          </Link>
-          <Link
-            href="#experience"
-            className="px-2 py-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted/50"
-          >
-            Experience
-          </Link>
-          <Link
-            href="#certificates"
-            className="px-2 py-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted/50"
-          >
-            Certifications
-          </Link>
-          <Link
-            href="#skills"
-            className="px-2 py-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted/50 hidden md:inline-block"
-          >
-            Skills
-          </Link>
-          <Link
-            href="#about"
-            className="px-2 py-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted/50 hidden md:inline-block"
-          >
-            About
+            <span
+              aria-hidden="true"
+              className="inline-block translate-y-[-1px] font-mono text-[22px] font-bold leading-none text-primary transition-transform duration-200 group-hover:rotate-45"
+            >
+              *
+            </span>
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-foreground">
+              {site.shortName}
+            </span>
+            <span aria-hidden="true" className="label hidden sm:inline">
+              /
+            </span>
+            <span className="label hidden sm:inline">swe &amp; ai</span>
           </Link>
 
-          <div className="h-3.5 w-px bg-border/60 mx-1 hidden sm:block" />
-
-          <Button
-            variant="ghost"
-            size="sm"
-            asChild
-            className="h-8 px-2.5 text-xs font-medium text-foreground gap-1.5 hover:bg-muted/50"
+          <nav
+            aria-label="Chapters"
+            className="hidden items-center gap-5 lg:flex"
           >
-            <Link href="/Nguyen-Quoc-Minh-CV.pdf" target="_blank" rel="noopener noreferrer">
-              <Download className="w-3.5 h-3.5 text-muted-foreground" />
-              <span>Resume</span>
+            {chapters.map((chapter) => {
+              const isActive = active === chapter.id
+
+              return (
+                <a
+                  key={chapter.id}
+                  href={`#${chapter.id}`}
+                  aria-current={isActive ? "true" : undefined}
+                  className={cn(
+                    "label relative py-1 transition-colors hover:text-foreground",
+                    isActive && "text-foreground"
+                  )}
+                >
+                  <span className={isActive ? "text-primary" : undefined}>
+                    {chapter.no}
+                  </span>{" "}
+                  {chapter.label}
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      "absolute -bottom-0.5 left-0 h-px w-full origin-left bg-primary transition-transform duration-200",
+                      isActive ? "scale-x-100" : "scale-x-0"
+                    )}
+                  />
+                </a>
+              )
+            })}
+          </nav>
+
+          <div className="flex shrink-0 items-center gap-2">
+            <Link
+              href={site.cv}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="label hidden items-center gap-1 py-2 text-primary transition-colors hover:text-foreground sm:inline-flex"
+            >
+              CV <span aria-hidden="true">↓</span>
             </Link>
-          </Button>
 
-          <ModeToggle />
-        </nav>
-      </div>
-    </header>
+            <ModeToggle />
+
+            <Button
+              variant="outline"
+              size="icon-sm"
+              className="lg:hidden"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open navigation"
+            >
+              <Menu />
+            </Button>
+          </div>
+        </div>
+        <span
+          ref={progressRef}
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-primary"
+        />
+      </header>
+
+      <MobileNav
+        open={menuOpen}
+        onOpenChange={setMenuOpen}
+        active={active}
+      />
+    </>
   )
 }

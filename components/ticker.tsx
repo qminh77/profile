@@ -1,0 +1,36 @@
+import { cn } from "@/lib/utils"
+
+const items = [
+  "Available for 2026 internships",
+  "Full-stack engineering",
+  "Applied AI",
+  "Next.js 16 / React 19",
+  "PostgreSQL / Supabase",
+  "Python / TensorFlow",
+  "HCMC · GMT+7",
+]
+
+export function Ticker({ className }: { className?: string }) {
+  return (
+    <div
+      className={cn(
+        "ticker flex items-center border-y border-border bg-background py-2.5",
+        className
+      )}
+      aria-hidden="true"
+    >
+      <div className="ticker-track">
+        {[0, 1].map((copy) => (
+          <div key={copy} className="ticker-group">
+            {items.map((item) => (
+              <span key={`${copy}-${item}`} className="flex items-center gap-7">
+                <span>{item}</span>
+                <span className="text-primary">*</span>
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}

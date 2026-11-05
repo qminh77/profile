@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nguyen Quoc Minh — Portfolio
 
-## Getting Started
+A typographic portfolio for Nguyen Quoc Minh, software engineer focused on full-stack web platforms and applied AI. The interface is built around **Obel Mono 1.001** and a black-and-paper system with one signal orange.
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Next.js 16 (App Router) + React 19 + TypeScript
+- Tailwind CSS v4 + shadcn/ui primitives
+- `next/font/local` for self-hosted Obel Mono
+- `next-themes` for light/dark themes
+- Canvas, IntersectionObserver, and CSS motion for the editorial effects
+
+## Type system
+
+Obel Mono 1.001 Roman and Italic are self-hosted from `app/fonts/` and exposed as `--font-obel` in `app/fonts.ts`. The full UI uses the same typeface for display, labels, tables, and body copy. The font is licensed under the SIL Open Font License 1.1; see `public/fonts/OFL.txt`.
+
+## Effects
+
+- `components/code-rain.tsx` — canvas matrix rain of code glyphs in the hero
+- `components/terminal.tsx` — in-view typewriter terminal inside the profile chapter
+- `components/scramble-text.tsx` — text-scramble hover effect on project titles
+- Cursor-following project preview, pointer spotlight, portrait scanline, marquee ticker, scroll reveals, live HCMC clock, and nav scroll progress
+- Motion is disabled or reduced under `prefers-reduced-motion`
+
+## Structure
+
+```text
+app/
+  fonts.ts            Obel Mono local font setup
+  globals.css         Tokens, type system, layout primitives, motion
+  layout.tsx          Root layout and metadata
+  page.tsx            Six-chapter page composition
+components/
+  hero.tsx            Cover: oversized name, portrait plate, index band
+  chapter.tsx         Sticky rail, ghost numeral, scroll reveal
+  projects.tsx        Filterable work index and cursor preview
+  terminal.tsx        Typed runtime panel
+  code-rain.tsx       Hero matrix rain
+  footer.tsx          Contact, colophon, type specimen
+lib/site.ts           Site constants and chapter metadata
+public/fonts/         Font license and author notes
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Commands
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run dev     # start development
+npm run lint    # eslint
+npm run build   # production build
+npm run start   # serve the production build
+```
