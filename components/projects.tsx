@@ -37,6 +37,30 @@ type Project = {
 
 const projects: Project[] = [
   {
+    id: "science-fair-2026",
+    title: "Science Fair 2026 — Official Event Website",
+    role: "Website Developer",
+    period: "2026",
+    category: "web",
+    summary:
+      "Official website for Science Fair 2026 — “Dialogue with the Future: AI – Society – Responsibility” — a three-day science festival (09—11.10.2026, Ho Chi Minh City) curated by The Too Blue Scientist, with Goethe-Institut, the German Consulate HCMC, Science Film Festival, artLIVE, Siemens, and Rolls-Royce.",
+    highlights: [
+      "Built on a custom WordPress block theme (science-fair-2026) with a companion science-fair-content plugin — custom blocks for the 3-day program schedule, credits, feedback form, and visitor stories",
+      "Shipped the “Bong Bóng” interactive curatorial tour with the WordPress Interactivity API: visitors place artworks on a Manual ↔ Automated × Artifactual ↔ Non-artifactual coordinate plane, persisted in-browser and exportable as an image",
+      "Bilingual vi/en experience, agenda across three festival days, program updates editable in WordPress, RSS feeds, and REST API",
+    ],
+    tech: [
+      "WordPress",
+      "PHP",
+      "JavaScript",
+      "Block Theme",
+      "Interactivity API",
+      "REST API",
+      "vi/en i18n",
+    ],
+    live: "https://sf2026.thetoobluescientist.com",
+  },
+  {
     id: "joblink",
     title: "Joblink — Professional Social Network & Job Portal",
     role: "Team 18NĐ / Full-stack Developer",

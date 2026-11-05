@@ -228,7 +228,7 @@ export function Hero() {
           <div className="group">
             <dt className="label">Selected systems</dt>
             <dd className="stat-value mt-2 transition-colors group-hover:text-primary">
-              08
+              09
             </dd>
           </div>
         </dl>

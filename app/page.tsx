@@ -135,7 +135,7 @@ export default function Home() {
             title="Work"
             deck="Platforms, experiments, and systems in production."
             specs={[
-              { label: "Entries", value: "08" },
+              { label: "Entries", value: "09" },
               { label: "Fields", value: "Web / AI / Systems" },
               { label: "Selected", value: "2025—2026" },
               { label: "Links", value: "Live / Code" },
