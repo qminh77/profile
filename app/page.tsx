@@ -7,6 +7,7 @@ import { Hero } from "@/components/hero"
 import { Navbar } from "@/components/nav"
 import { OpenSource } from "@/components/open-source"
 import { Projects } from "@/components/projects"
+import { ScrollEffects } from "@/components/scroll-effects"
 import { Skills } from "@/components/skills"
 import { Terminal } from "@/components/terminal"
 import { Ticker } from "@/components/ticker"
@@ -14,6 +15,7 @@ import { Ticker } from "@/components/ticker"
 export default function Home() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground antialiased">
+      <ScrollEffects />
       <Navbar />
 
       <main id="main">

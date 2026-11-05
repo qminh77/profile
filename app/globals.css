@@ -474,20 +474,38 @@
     animation: portrait-scan 5.6s linear infinite;
   }
 
-  /* Scroll reveal: content arrives from below, once. */
+  /* Scroll reveal: content arrives once, from a direction. */
   .reveal {
     opacity: 0;
     transform: translate3d(0, 26px, 0);
     transition:
-      opacity 0.8s var(--ease),
-      transform 0.8s var(--ease);
+      opacity 0.85s var(--ease),
+      transform 0.85s var(--ease);
     will-change: opacity, transform;
+  }
+
+  .reveal-left {
+    transform: translate3d(-24px, 0, 0);
+  }
+
+  .reveal-right {
+    transform: translate3d(24px, 0, 0);
+  }
+
+  .reveal-fade {
+    transform: none;
   }
 
   .reveal.is-visible {
     opacity: 1;
     transform: none;
     will-change: auto;
+  }
+
+  /* Decorative depth driven by ScrollEffects through --parallax-y. */
+  [data-parallax] {
+    transform: translate3d(0, var(--parallax-y, 0px), 0);
+    will-change: transform;
   }
 
   .chapter-body {

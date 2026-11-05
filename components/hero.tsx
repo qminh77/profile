@@ -85,8 +85,14 @@ export function Hero() {
       onPointerMove={trackPointer}
       className="hero-spotlight relative overflow-hidden border-b border-border"
     >
-      <BinaryField />
-      <CodeRain className="opacity-80" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        data-parallax="0.18"
+      >
+        <BinaryField />
+        <CodeRain className="opacity-80" />
+      </div>
 
       <div className="shell relative z-10">
         <div className="hero-in flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-border/70 py-3">
