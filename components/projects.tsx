@@ -56,6 +56,7 @@ const projects: Project[] = [
       "Editable programme",
     ],
     live: "https://sf2026.thetoobluescientist.com",
+    image: "/science_fair_2026.jpg",
   },
   {
     id: "joblink",
