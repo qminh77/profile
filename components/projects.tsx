@@ -80,6 +80,7 @@ const projects: Project[] = [
     ],
     github: "https://github.com/qminh77/joblink",
     live: "https://joblink.umters.club",
+    image: "/joblink.jpg",
   },
   {
     id: "ai-maze",
